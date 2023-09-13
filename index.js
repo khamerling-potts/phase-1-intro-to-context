@@ -34,14 +34,12 @@ function createTimeOutEvent(record, dateTime) {
 }
 
 function hoursWorkedOnDate(record, date) {
-  let timeInArray = record.timeInEvents.filter(
+  let timeIn = record.timeInEvents.find(
     (timeInEvent) => timeInEvent.date === date
   );
-  let timeOutArray = record.timeOutEvents.filter(
+  let timeOut = record.timeOutEvents.find(
     (timeOutEvent) => timeOutEvent.date === date
   );
-  const timeIn = timeInArray[0];
-  const timeOut = timeOutArray[0];
   return (timeOut.hour - timeIn.hour) / 100;
 }
 
